@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const RingTonesList());
+void main() => runApp(const MainApp());
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
@@ -10,17 +10,26 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.blue,
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("images/background.jpg"),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
             child: ListView(
               children: [
-                Container(
-                  height: 300.0,
-                  color: Colors.blue,
-                  child: GestureDetector(
-                    onTap: () {},
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const RingTonesList()));
+                  },
+                  child: Container(
+                    height: 300.0,
                     child: const Card(
                         color: Colors.transparent,
                         child: Column(
@@ -48,7 +57,6 @@ class MainApp extends StatelessWidget {
                     Expanded(
                       child: Container(
                         height: 150.0,
-                        color: Colors.blue,
                         child: const Card(
                             color: Colors.transparent,
                             child: Column(
@@ -59,7 +67,7 @@ class MainApp extends StatelessWidget {
                                 ),
                                 SizedBox(height: 10),
                                 Text(
-                                  'Share The App',
+                                  'More Apps',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
@@ -72,7 +80,6 @@ class MainApp extends StatelessWidget {
                     Expanded(
                       child: Container(
                         height: 150.0,
-                        color: Colors.blue,
                         child: const Card(
                             color: Colors.transparent,
                             child: Column(
@@ -101,7 +108,6 @@ class MainApp extends StatelessWidget {
                     Expanded(
                       child: Container(
                         height: 150.0,
-                        color: Colors.blue,
                         child: const Card(
                             color: Colors.transparent,
                             child: Column(
@@ -125,7 +131,6 @@ class MainApp extends StatelessWidget {
                     Expanded(
                       child: Container(
                         height: 150.0,
-                        color: Colors.blue,
                         child: const Card(
                             color: Colors.transparent,
                             child: Column(
@@ -166,28 +171,40 @@ class RingTonesList extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: ListView(children: [
-          Container(
-            height: 65,
-            child: Card(
-              color: Colors.transparent,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Image.asset('numbers/1.jpg'),
-                  ),
-                  const Text(
-                    'Ringtone_1',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15),
-                  ),
-                  Container(
-                      alignment: Alignment.centerRight,
-                      child: Icon(Icons.share))
-                ],
+          GestureDetector(
+            onTap: () {
+              // This function will be called when the user clicks on the image.
+              // It will navigate to the new page.
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MainApp(),
+                ),
+              );
+            },
+            child: Container(
+              height: 65,
+              child: Card(
+                color: Colors.transparent,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset('numbers/1.jpg'),
+                    ),
+                    const Text(
+                      'Ringtone_1',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15),
+                    ),
+                    Container(
+                        alignment: Alignment.centerRight,
+                        child: const Icon(Icons.share))
+                  ],
+                ),
               ),
             ),
           ),
@@ -211,7 +228,7 @@ class RingTonesList extends StatelessWidget {
                   ),
                   Container(
                       alignment: Alignment.centerRight,
-                      child: Icon(Icons.share))
+                      child: const Icon(Icons.share))
                 ],
               ),
             ),
@@ -236,7 +253,7 @@ class RingTonesList extends StatelessWidget {
                   ),
                   Container(
                       alignment: Alignment.centerRight,
-                      child: Icon(Icons.share))
+                      child: const Icon(Icons.share))
                 ],
               ),
             ),
@@ -261,7 +278,7 @@ class RingTonesList extends StatelessWidget {
                   ),
                   Container(
                       alignment: Alignment.centerRight,
-                      child: Icon(Icons.share))
+                      child: const Icon(Icons.share))
                 ],
               ),
             ),
