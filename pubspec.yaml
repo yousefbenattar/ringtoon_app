@@ -9,7 +9,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  ringtone_set: ^0.0.3
+  audioplayers: ^0.20.1
+  ringtone_set_mul: ^0.0.4
+
 
 dev_dependencies:
   flutter_test:
